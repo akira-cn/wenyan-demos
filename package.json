@@ -1,0 +1,26 @@
+{
+  "name": "wenyan-lang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "monaco-editor-webpack-plugin": "^1.7.0"
+  },
+  "devDependencies": {
+    "@demosify/core": "^0.6.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "scripts": {
+    "start": "demosify --serve",
+    "build": "demosify --prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
