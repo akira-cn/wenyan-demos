@@ -12,7 +12,7 @@ module.exports = function(env) {
     // demoList: env === 'development' ? '.demoList.dev.json': '.demoList.prod.json',
     name: '文言',
     version: 'v1',
-    homePage: 'https://github.com/wenyan-lang/wenyan',
+    homePage: 'https://github.com/akira-cn/wenyan-demos',
     logo: '',
     // 可选主题: active4d, allHallowsEve, amy, blackboard, brillianceBlack,
     // brillianceDull, chromeDevtools, cloudsMidnight, clouds, cobalt,

@@ -26,9 +26,10 @@ export default async () => {
             }
             el.innerText += msg + '\\n';
           };
+          const path = location.href.indexOf('localhost') >= 0 ? location.origin: 'https://akira-cn.github.io/wenyan-demos/';
           Wenyan.execute(\`\${code}\`, {
             logCallback: () => {},
-            importPaths: [location.origin],
+            importPaths: [path],
             allowHttp: true,
           });
         }());`;
