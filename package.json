@@ -1,19 +1,15 @@
 {
   "name": "wenyan-lang",
-  "version": "1.0.0",
-  "description": "",
-  "main": "webpack.config.js",
+  "version": "0.0.1",
+  "description": "文言文编程例子",
   "directories": {
-    "example": "examples"
+    "example": "demos"
   },
   "dependencies": {
     "monaco-editor-webpack-plugin": "^1.7.0"
   },
   "devDependencies": {
-    "@demosify/core": "^0.6.0",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.3"
+    "@demosify/core": "^0.6.0"
   },
   "scripts": {
     "start": "demosify --serve",
