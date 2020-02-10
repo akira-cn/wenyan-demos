@@ -17,6 +17,7 @@ export default function({html, code}) {
           const _log = console.log;
           let el = null;
           console.log = (msg) => {
+            _log(msg);
             if(!el) {
               el = document.createElement('pre');
               out.append(el);
@@ -40,8 +41,8 @@ export default function({html, code}) {
         monaco.languages.setMonarchTokensProvider('wy', wy);
       },
       inputHook(editor, value) {
-        if(/[\[\]]/mg.test(value)) {
-          const res = value.replace(/\[/mg, '「').replace(/\]/mg, '」');
+        if(/[【】]/mg.test(value)) {
+          const res = value.replace(/【/mg, '「').replace(/】/mg, '」');
           editor.setValue(res);
           return false;
         } 
