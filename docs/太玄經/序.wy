@@ -1,0 +1,17 @@
+今有一術。名之曰「柯裏化」。欲行是術。必先得一術。曰「行」。
+乃行是術曰。
+  施「((x)=>{const args=Array();const len=x.length;function f(y){args.push(y);if(args.length<len){return f;}return x.apply(this,args)}return f;})」於「行」。乃得矣。
+是謂「柯裏化」之術也。
+
+或云「「得其矣」」。
+蓋謂「「於「「其物階備矣」」」」。
+
+今有一術。名之曰「柯裏化不定數」。欲行是術。必先得一術。曰「行」。
+乃行是術曰。
+  施「((x)=>{const args=Array();function f(y){args.push(y);if(y!=="其物階備矣") return f;return x.apply(this,args.slice(0, -1))}return f;})」於「行」。乃得矣。
+是謂「柯裏化不定數」之術也。
+
+今有一術。名之曰「以物行術」。欲行是術。必先得一物。曰「体」。一術。曰「用」。
+乃行是術曰。
+  施「(()=>用.bind(体))」。乃得矣。
+是謂「以物行術」之術也。
