@@ -1,5 +1,6 @@
 // wy-language.js
 export default {
+  keywordsExtend: "且施|平施|以俟其毕|行是術以俟其毕|爪哇國有腳本|其文如是矣|記|無名",
   storageType: "元|物|爻|術|言|列|數",
   constantNumeric: "負|·|又|零|〇|一|二|三|四|五|六|七|八|九|十|百|千|萬|億|兆|京|垓|秭|穰|溝|澗|正|載|極|分|釐|毫|絲|忽|微|纖|沙|塵|埃|渺|漠",
   constantLang: "陰|陽|其",
@@ -10,6 +11,7 @@ export default {
   keywordsOther: "不知何禍歟|不復存矣|如事不諧|姑妄行此|吾嘗觀|之禍歟|乃作罷|名之曰|書之|以施|之禍|嗚呼|之義|昔之|方悟|是矣|今有|吾有|之書|物之|夫|中|今|取|噫|曰|施|豈|有",
   tokenizer: {
       root: [
+          [/@keywordsExtend/, "keyword"],
           [/(注曰|疏曰|批曰)。「「/, 'comment', '@blockComment'],
           [/(注曰|疏曰|批曰).*$/, 'comment'],
           [/「「/, 'string', '@string'],

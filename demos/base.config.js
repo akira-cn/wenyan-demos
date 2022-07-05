@@ -25,11 +25,12 @@ export default function({html, code}) {
             el.innerText += msg + '\\n';
           };
           const path = location.href.indexOf('localhost') >= 0 ? location.origin: 'https://akira-cn.github.io/wenyan-demos/';
-          Wenyan.execute(\`\${code}\`, {
+          const jscode = Wenyan.compile(\`吾嘗觀「「天地玄黃」」之書。\n\n\${code}\`, {
             logCallback: () => {},
             importPaths: [path],
             allowHttp: true,
           });
+          Wenyan.evalCompiled(\`(async () => {\${jscode}})()\`);
         }());`;
         return cc;
       },
