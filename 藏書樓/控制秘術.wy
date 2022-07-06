@@ -18,7 +18,7 @@ const waitKeyUp = async () => {
 }
 const waitPointerDown = async (container) => {
   return new Promise(resolve => {
-    container.addEventListener('pointerdown', ({buttons, button, x, y}) => {
+    container.addEventListener('pointerdown', ({buttons, button, layerX:x, layerY:y}) => {
       resolve({
         '\u9375\u503c': buttons,
         '\u55ae\u9375\u503c': button,
@@ -30,7 +30,7 @@ const waitPointerDown = async (container) => {
 }
 const waitPointerUp = async (container) => {
   return new Promise(resolve => {
-    container.addEventListener('pointerup', ({buttons, button, x, y}) => {
+    container.addEventListener('pointerup', ({buttons, button, layerX:x, layerY:y}) => {
       resolve({
         '\u9375\u503c': buttons,
         '\u55ae\u9375\u503c': button,
@@ -42,7 +42,7 @@ const waitPointerUp = async (container) => {
 }
 const waitPointerMove = async (container) => {
   return new Promise(resolve => {
-    container.addEventListener('pointermove', ({buttons, button, x, y}) => {
+    container.addEventListener('pointermove', ({buttons, button, layerX:x, layerY:y}) => {
       resolve({
         '\u9375\u503c': buttons,
         '\u55ae\u9375\u503c': button,
@@ -54,7 +54,7 @@ const waitPointerMove = async (container) => {
 }
 const waitPointerEnter = async (container) => {
   return new Promise(resolve => {
-    container.addEventListener('pointerenter', ({buttons, button, x, y}) => {
+    container.addEventListener('pointerenter', ({buttons, button, layerX:x, layerY:y}) => {
       resolve({
         '\u9375\u503c': buttons,
         '\u55ae\u9375\u503c': button,
@@ -66,7 +66,7 @@ const waitPointerEnter = async (container) => {
 }
 const waitPointerLeave = async (container) => {
   return new Promise(resolve => {
-    container.addEventListener('pointerleave', ({buttons, button, x, y}) => {
+    container.addEventListener('pointerleave', ({buttons, button, layerX:x, layerY:y}) => {
       resolve({
         '\u9375\u503c': buttons,
         '\u55ae\u9375\u503c': button,
