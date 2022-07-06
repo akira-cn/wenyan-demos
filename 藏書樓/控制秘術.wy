@@ -18,60 +18,65 @@ const waitKeyUp = async () => {
 }
 const waitPointerDown = async (container) => {
   return new Promise(resolve => {
-    container.addEventListener('pointerdown', ({buttons, button, layerX:x, layerY:y}) => {
+    container.addEventListener('pointerdown', ({buttons, button, x, y}) => {
+      const {left, top} = container.getBoundingClientRect();
       resolve({
         '\u9375\u503c': buttons,
         '\u55ae\u9375\u503c': button,
-        '\u7d93\u6578': x,
-        '\u7def\u6578': y,
+        '\u7d93\u6578': x - left,
+        '\u7def\u6578': y - top,
       });
     }, {once: true});
   });
 }
 const waitPointerUp = async (container) => {
   return new Promise(resolve => {
-    container.addEventListener('pointerup', ({buttons, button, layerX:x, layerY:y}) => {
+    container.addEventListener('pointerup', ({buttons, button, x, y}) => {
+      const {left, top} = container.getBoundingClientRect();
       resolve({
         '\u9375\u503c': buttons,
         '\u55ae\u9375\u503c': button,
-        '\u7d93\u6578': x,
-        '\u7def\u6578': y,
+        '\u7d93\u6578': x - left,
+        '\u7def\u6578': y - top,
       });
     }, {once: true});
   });
 }
 const waitPointerMove = async (container) => {
   return new Promise(resolve => {
-    container.addEventListener('pointermove', ({buttons, button, layerX:x, layerY:y}) => {
+    container.addEventListener('pointermove', ({buttons, button, x, y}) => {
+      const {left, top} = container.getBoundingClientRect();
       resolve({
         '\u9375\u503c': buttons,
         '\u55ae\u9375\u503c': button,
-        '\u7d93\u6578': x,
-        '\u7def\u6578': y,
+        '\u7d93\u6578': x - left,
+        '\u7def\u6578': y - top,
       });
     }, {once: true});
   });
 }
 const waitPointerEnter = async (container) => {
   return new Promise(resolve => {
-    container.addEventListener('pointerenter', ({buttons, button, layerX:x, layerY:y}) => {
+    container.addEventListener('pointerenter', ({buttons, button, x, y}) => {
+      const {left, top} = container.getBoundingClientRect();
       resolve({
         '\u9375\u503c': buttons,
         '\u55ae\u9375\u503c': button,
-        '\u7d93\u6578': x,
-        '\u7def\u6578': y,
+        '\u7d93\u6578': x - left,
+        '\u7def\u6578': y - top,
       });
     }, {once: true});
   });
 }
 const waitPointerLeave = async (container) => {
   return new Promise(resolve => {
-    container.addEventListener('pointerleave', ({buttons, button, layerX:x, layerY:y}) => {
+    container.addEventListener('pointerleave', ({buttons, button, x, y}) => {
+      const {left, top} = container.getBoundingClientRect();
       resolve({
         '\u9375\u503c': buttons,
         '\u55ae\u9375\u503c': button,
-        '\u7d93\u6578': x,
-        '\u7def\u6578': y,
+        '\u7d93\u6578': x - left,
+        '\u7def\u6578': y - top,
       });
     }, {once: true});
   });
