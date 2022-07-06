@@ -1,0 +1,126 @@
+吾嘗觀「「異步秘術」」之書。
+吾嘗觀「「腳本秘術」」之書。
+
+爪哇國有腳本
+const waitKeyDown = async () => {
+  return new Promise(resolve => {
+    window.addEventListener('keydown', ({key}) => {
+      resolve(key);
+    }, {once: true});
+  });
+}
+const waitKeyUp = async () => {
+  return new Promise(resolve => {
+    window.addEventListener('keyup', ({key}) => {
+      resolve(key);
+    }, {once: true});
+  });
+}
+const waitPointerDown = async (container) => {
+  return new Promise(resolve => {
+    container.addEventListener('pointerdown', ({buttons, button, x, y}) => {
+      resolve({
+        '\u9375\u503c': buttons,
+        '\u55ae\u9375\u503c': button,
+        '\u7d93\u6578': x,
+        '\u7def\u6578': y,
+      });
+    }, {once: true});
+  });
+}
+const waitPointerUp = async (container) => {
+  return new Promise(resolve => {
+    container.addEventListener('pointerup', ({buttons, button, x, y}) => {
+      resolve({
+        '\u9375\u503c': buttons,
+        '\u55ae\u9375\u503c': button,
+        '\u7d93\u6578': x,
+        '\u7def\u6578': y,
+      });
+    }, {once: true});
+  });
+}
+const waitPointerMove = async (container) => {
+  return new Promise(resolve => {
+    container.addEventListener('pointermove', ({buttons, button, x, y}) => {
+      resolve({
+        '\u9375\u503c': buttons,
+        '\u55ae\u9375\u503c': button,
+        '\u7d93\u6578': x,
+        '\u7def\u6578': y,
+      });
+    }, {once: true});
+  });
+}
+const waitPointerEnter = async (container) => {
+  return new Promise(resolve => {
+    container.addEventListener('pointerenter', ({buttons, button, x, y}) => {
+      resolve({
+        '\u9375\u503c': buttons,
+        '\u55ae\u9375\u503c': button,
+        '\u7d93\u6578': x,
+        '\u7def\u6578': y,
+      });
+    }, {once: true});
+  });
+}
+const waitPointerLeave = async (container) => {
+  return new Promise(resolve => {
+    container.addEventListener('pointerleave', ({buttons, button, x, y}) => {
+      resolve({
+        '\u9375\u503c': buttons,
+        '\u55ae\u9375\u503c': button,
+        '\u7d93\u6578': x,
+        '\u7def\u6578': y,
+      });
+    }, {once: true});
+  });
+}
+其文如是矣。
+
+今有一術。名之曰「等待按鍵」。
+欲行是術以俟其毕。
+是術曰。
+  施「await waitKeyDown」。乃得矣。
+是謂「等待按鍵」之術也。
+
+今有一術。名之曰「等待松鍵」。
+欲行是術以俟其毕。
+是術曰。
+  施「await waitKeyUp」。乃得矣。
+是謂「等待松鍵」之術也。
+
+今有一術。名之曰「等待指針按下」。
+欲行是術。必先得一物。曰「容器」。
+行是術以俟其毕。
+是術曰。
+  施「await waitPointerDown」於「容器」。乃得矣。
+是謂「等待指針按下」之術也。
+
+今有一術。名之曰「等待指針鬆開」。
+欲行是術。必先得一物。曰「容器」。
+行是術以俟其毕。
+是術曰。
+  施「await waitPointerUp」於「容器」。乃得矣。
+是謂「等待指針鬆開」之術也。
+
+今有一術。名之曰「等待指針移動」。
+欲行是術。必先得一物。曰「容器」。
+行是術以俟其毕。
+是術曰。
+  施「await waitPointerMove」於「容器」。乃得矣。
+是謂「等待指針移動」之術也。
+
+今有一術。名之曰「等待指針移入」。
+欲行是術。必先得一物。曰「容器」。
+行是術以俟其毕。
+是術曰。
+  施「await waitPointerEnter」於「容器」。乃得矣。
+是謂「等待指針移入」之術也。
+
+今有一術。名之曰「等待指針移出」。
+欲行是術。必先得一物。曰「容器」。
+行是術以俟其毕。
+是術曰。
+  施「await waitPointerLeave」於「容器」。乃得矣。
+是謂「等待指針移出」之術也。
