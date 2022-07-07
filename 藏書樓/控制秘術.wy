@@ -16,6 +16,12 @@ const waitKeyUp = async () => {
     }, {once: true});
   });
 }
+const __wenyanPointerStateHandler = function({x, y}) {
+  this.__lastX = x;
+  this.__lastY = y;
+  this.__time = Date.now();
+}
+
 const __wenyanPointerEventHandler = function(resolve, {type, buttons, button, x, y}) {
   const {left, top} = this.getBoundingClientRect();
   x -= left;
@@ -25,17 +31,17 @@ const __wenyanPointerEventHandler = function(resolve, {type, buttons, button, x,
     '\u55ae\u9375\u503c': button,
     '\u7d93\u6578': x,
     '\u7def\u6578': y,
-    '\u524d\u7d93': this.__lastX == null ? -1 : this.__lastX,
-    '\u524d\u7def': this.__lastY == null ? -1 : this.__lastY,
   };
   if(type === 'pointermove') {
     const time = Date.now() - this.__time;
-    velocityX = (x - this.__lastX) / time;
-    velocityY = (y - this.__lastY) / time;
+    if(this.__lastX == null) this.__lastX = x;
+    if(this.__lastY == null) this.__lastY = y;
+    velocityX = (x - this.__lastX) / (time || 1);
+    velocityY = (y - this.__lastY) / (time || 1);
+    ret['\u524d\u7d93'] = this.__lastX;
+    ret['\u524d\u7def'] = this.__lastY;
     ret['\u7d93\u901f'] = velocityX;
     ret['\u7def\u901f'] = velocityY;
-  }
-  if(type !== 'pointerenter' && type !== 'pointerleave') {
     this.__lastX = x;
     this.__lastY = y;
     this.__time = Date.now();
@@ -57,6 +63,10 @@ const waitPointerUp = async (container) => {
 
 const waitPointerMove = async (container) => {
   return new Promise(resolve => {
+    if(!container.__initPointerState) {
+      container.__initPointerState = __wenyanPointerStateHandler;
+      container.addEventListener('pointerdown', __wenyanPointerStateHandler.bind(this));
+    }
     container.addEventListener('pointermove', __wenyanPointerEventHandler.bind(container, resolve), {once: true});
   });
 }
