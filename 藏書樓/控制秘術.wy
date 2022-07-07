@@ -16,69 +16,60 @@ const waitKeyUp = async () => {
     }, {once: true});
   });
 }
+const __wenyanPointerEventHandler = function(resolve, {type, buttons, button, x, y}) {
+  const {left, top} = this.getBoundingClientRect();
+  x -= left;
+  y -= top;
+  const ret = {
+    '\u9375\u503c': buttons,
+    '\u55ae\u9375\u503c': button,
+    '\u7d93\u6578': x,
+    '\u7def\u6578': y,
+    '\u524d\u7d93': this.__lastX == null ? -1 : this.__lastX,
+    '\u524d\u7def': this.__lastY == null ? -1 : this.__lastY,
+  };
+  if(type === 'pointermove') {
+    const time = Date.now() - this.__time;
+    velocityX = (x - this.__lastX) / time;
+    velocityY = (y - this.__lastY) / time;
+    ret['\u7d93\u901f'] = velocityX;
+    ret['\u7def\u901f'] = velocityY;
+  }
+  if(type !== 'pointerenter' && type !== 'pointerleave') {
+    this.__lastX = x;
+    this.__lastY = y;
+    this.__time = Date.now();
+  }
+  resolve(ret);
+} 
+
 const waitPointerDown = async (container) => {
   return new Promise(resolve => {
-    container.addEventListener('pointerdown', ({buttons, button, x, y}) => {
-      const {left, top} = container.getBoundingClientRect();
-      resolve({
-        '\u9375\u503c': buttons,
-        '\u55ae\u9375\u503c': button,
-        '\u7d93\u6578': x - left,
-        '\u7def\u6578': y - top,
-      });
-    }, {once: true});
+    container.addEventListener('pointerdown', __wenyanPointerEventHandler.bind(container, resolve), {once: true});
   });
 }
+
 const waitPointerUp = async (container) => {
   return new Promise(resolve => {
-    container.addEventListener('pointerup', ({buttons, button, x, y}) => {
-      const {left, top} = container.getBoundingClientRect();
-      resolve({
-        '\u9375\u503c': buttons,
-        '\u55ae\u9375\u503c': button,
-        '\u7d93\u6578': x - left,
-        '\u7def\u6578': y - top,
-      });
-    }, {once: true});
+    container.addEventListener('pointerup', __wenyanPointerEventHandler.bind(container, resolve), {once: true});
   });
 }
+
 const waitPointerMove = async (container) => {
   return new Promise(resolve => {
-    container.addEventListener('pointermove', ({buttons, button, x, y}) => {
-      const {left, top} = container.getBoundingClientRect();
-      resolve({
-        '\u9375\u503c': buttons,
-        '\u55ae\u9375\u503c': button,
-        '\u7d93\u6578': x - left,
-        '\u7def\u6578': y - top,
-      });
-    }, {once: true});
+    container.addEventListener('pointermove', __wenyanPointerEventHandler.bind(container, resolve), {once: true});
   });
 }
+
 const waitPointerEnter = async (container) => {
   return new Promise(resolve => {
-    container.addEventListener('pointerenter', ({buttons, button, x, y}) => {
-      const {left, top} = container.getBoundingClientRect();
-      resolve({
-        '\u9375\u503c': buttons,
-        '\u55ae\u9375\u503c': button,
-        '\u7d93\u6578': x - left,
-        '\u7def\u6578': y - top,
-      });
-    }, {once: true});
+    container.addEventListener('pointerenter', __wenyanPointerEventHandler.bind(container, resolve), {once: true});
   });
 }
-const waitPointerLeave = async (container) => {
+
+const waitPointerLeaver = async (container) => {
   return new Promise(resolve => {
-    container.addEventListener('pointerleave', ({buttons, button, x, y}) => {
-      const {left, top} = container.getBoundingClientRect();
-      resolve({
-        '\u9375\u503c': buttons,
-        '\u55ae\u9375\u503c': button,
-        '\u7d93\u6578': x - left,
-        '\u7def\u6578': y - top,
-      });
-    }, {once: true});
+    container.addEventListener('pointerleave', __wenyanPointerEventHandler.bind(container, resolve), {once: true});
   });
 }
 其文如是矣。
