@@ -65,7 +65,7 @@ const waitPointerMove = async (container) => {
   return new Promise(resolve => {
     if(!container.__initPointerState) {
       container.__initPointerState = __wenyanPointerStateHandler;
-      container.addEventListener('pointerdown', __wenyanPointerStateHandler.bind(this));
+      container.addEventListener('pointerdown', __wenyanPointerStateHandler.bind(container));
     }
     container.addEventListener('pointermove', __wenyanPointerEventHandler.bind(container, resolve), {once: true});
   });
