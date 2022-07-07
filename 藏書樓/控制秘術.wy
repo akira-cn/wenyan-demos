@@ -22,6 +22,8 @@ const __wenyanPointerStateHandler = function({x, y}) {
   y -= top;
   this.__lastX = x;
   this.__lastY = y;
+  this.__startX = x;
+  this.__startY = y;
   this.__time = Date.now();
 }
 
@@ -39,10 +41,14 @@ const __wenyanPointerEventHandler = function(resolve, {type, buttons, button, x,
     const time = Date.now() - this.__time;
     if(this.__lastX == null) this.__lastX = x;
     if(this.__lastY == null) this.__lastY = y;
+    if(this.__startX == null) this.__startX = x;
+    if(this.__startY == null) this.__startY = y;
     velocityX = (x - this.__lastX) / (time || 1);
     velocityY = (y - this.__lastY) / (time || 1);
     ret['\u524d\u7d93'] = this.__lastX;
     ret['\u524d\u7def'] = this.__lastY;
+    ret['\u59cb\u7d93'] = this.__startX;
+    ret['\u59cb\u7def'] = this.__startY;
     ret['\u7d93\u901f'] = velocityX;
     ret['\u7def\u901f'] = velocityY;
     this.__lastX = x;
