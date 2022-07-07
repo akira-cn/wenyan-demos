@@ -17,6 +17,9 @@ const waitKeyUp = async () => {
   });
 }
 const __wenyanPointerStateHandler = function({x, y}) {
+  const {left, top} = this.getBoundingClientRect();
+  x -= left;
+  y -= top;
   this.__lastX = x;
   this.__lastY = y;
   this.__time = Date.now();
