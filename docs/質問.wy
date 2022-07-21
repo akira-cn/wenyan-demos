@@ -1,0 +1,13 @@
+吾嘗觀「「腳本秘術」」之書。
+
+爪哇國有腳本
+var jsprompt = _ => {};
+jsprompt = question => default_answer => { return prompt(question, default_answer); }
+其文如是矣。
+
+今有一術。名之曰「質問」。
+欲行是術。
+必先得二言。曰「言質問」。曰「言回答」。
+乃行是術曰。
+施「jsprompt」。於「言質問」於「言回答」。名之曰「言」。乃得「言」。
+是謂「質問」之術也。
