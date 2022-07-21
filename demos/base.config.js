@@ -40,6 +40,9 @@ export default function({html, code}) {
 
         // Register a tokens provider for the language
         monaco.languages.setMonarchTokensProvider('wy', wy);
+        if(wy.LanguageConfiguration) {
+          monaco.languages.setLanguageConfiguration('wy', wy.LanguageConfiguration);
+        }
       },
       inputHook(editor, value) {
         if(/[【】]/mg.test(value)) {
