@@ -25,9 +25,9 @@
   施「(x=>clearTimeout(x))」於「令」。乃得矣。
 是謂「是令乃止」之術也。
 
-疏曰。「「今有令施「加法」於二於三。名之曰「加令」。施「每秒令」於「加令」於二。」」
+疏曰。「「有令施「加法」於二於三。名之曰「加令」。施「每秒令」於「加令」於二。」」
 
-或云「「今有令施「甲」」」。
+或云「「有令施「甲」」」。
 蓋謂「「施「((x)=>{const args=Array();function f(y){if(y!==undefined){args.push(y);return f;}else{return args.reduce((a, b) =>{return a(b)}, x)}}return f;})」於「甲」」」。
 
 或云「「施「甲」於每毫秒」」。
