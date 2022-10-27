@@ -27,7 +27,7 @@ const __wenyanPointerStateHandler = function({x, y}) {
   this.__time = Date.now();
 }
 
-const __wenyanPointerEventHandler = function(resolve, {type, buttons, button, x, y}) {
+const __wenyanPointerEventHandler = function(resolve, {type, target, buttons, button, x, y}) {
   const {left, top} = this.getBoundingClientRect();
   x -= left;
   y -= top;
@@ -36,6 +36,7 @@ const __wenyanPointerEventHandler = function(resolve, {type, buttons, button, x,
     '\u55ae\u9375\u503c': button,
     '\u7d93\u6578': x,
     '\u7def\u6578': y,
+    '\u5c6c\u7269': target,
   };
   if(type === 'pointermove') {
     const time = Date.now() - this.__time;
